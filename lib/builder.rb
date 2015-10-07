@@ -2,18 +2,22 @@
 require 'pathname'
 require 'csv'
 require 'fileutils'
+require 'GithubChecker'
 
 # This module contains build logic for determining if a new build of the
 # Avalon OVA is needed and starting the OVA
 module Builder
   # TODO: Move these class variables into a config file and load them from it
   @@csv_headers = %w(avalon_branch avalon_commit avalon_installer_branch
-                     avalon_installer_commit 'ova_name build_status notes)
-  @@data_dir_location = Pathname(File.dirname(__FILE__) + File::SEPARATOR + 'data' +
-                        File::SEPARATOR)
+                     avalon_installer_commit ova_name build_status notes)
+  @@build_success = 'success'
+  @@build_failed = 'failed'
+  @@data_dir_location = Pathname(File.dirname(__FILE__) + "#{File::SEPARATOR}data#{File::SEPARATOR}")
   @@csv_location = Pathname(@@data_dir_location + 'build_history.csv')
   @@avalon_installer_clone_uri = 'https://github.com/avalonmediasystem/avalon-installer.git'
   @@default_avalon_installer_branch = 'master'
+  @@avalon_installer_github_api =  'https://api.github.com/repos/avalonmediasystem/avalon-installer/'
+  @@avalon_github_api = 'https://api.github.com/repos/avalonmediasystem/avalon/'
 
   # Makes the history CSV for avalon builds, creates the directory and .csv file
   # if they currently do not exist and writes in a stub .csv file with just the
@@ -73,8 +77,39 @@ module Builder
     }
   end
 
+  # Initialzes an OVA Build and records the results to build_history.csv
+  #
+  # @param installer_branch [String] (default: master) The branch of the ova
+  # installer to be used
+  # @param force_rebuild [Boolean] (default: False) If a build for the avalon
+  # and avalon-installer already exists, this determines if it should be rebuilt
+  def build_ova(installer_branch = 'master', force_rebuild = false)
+    build_dir = clone_repo(@@avalon_installer_clone_uri, installer_branch)
+    current_installer_commit = 'foo'
+  end
 
-
-
-
+  # Determines if we already have an ova using the passed installer branch
+  # and the master branch of avalon
+  #
+  # @param installer_branch [String] The installer branch to check against
+  # @return [Boolean] False if there is not a build
+  # @return [String] The path to the ova if there is one present
+  def ova_already_built?(installer_branch)
+    make_history_csv #only creates one if there isn't one
+    git_check_class = Class.new { include GithubChecker }
+    git_check = git_check_class.new
+    current_installer_commit = git_check.get_latest_commit(@@avalon_installer_github_api, installer_branch)
+    current_avalon_commit = git_check.get_latest_commit(@@avalon_github_api, @@default_avalon_installer_branch)
+    search = {'avalon_branch' => @@default_avalon_installer_branch, 'avalon_commit' => current_avalon_commit, 'avalon_installer_branch' => installer_branch, 'avalon_installer_commit' => current_installer_commit, 'build_status' => @@build_success}
+    CSV.open(@@csv_location, 'r', :headers => true) do |csv|
+      csv.find_all do |row|
+        match = true
+        search.keys.each do |key|
+          match &&= row[key].eql? search[key]
+        end
+        return row['ova_name'] if match
+      end
+    end
+    return false
+  end
 end

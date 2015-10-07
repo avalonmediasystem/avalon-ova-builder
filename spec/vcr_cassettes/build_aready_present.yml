@@ -1,0 +1,433 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/avalonmediasystem/avalon/commits/master
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 07 Oct 2015 17:24:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '51'
+      X-Ratelimit-Reset:
+      - '1444241389'
+      Cache-Control:
+      - public, max-age=60, s-maxage=60
+      Last-Modified:
+      - Sat, 19 Sep 2015 00:28:01 GMT
+      Etag:
+      - W/"5bedfe231905c0d40d572d1327f542de"
+      Vary:
+      - Accept
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 95A0D945:10755:145E1F92:56155537
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - c6c65e5196703428e7641f7d1e9bc353
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        dbn6A6OP1+oxHQAA
+    http_version: 
+  recorded_at: Wed, 07 Oct 2015 17:24:07 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/avalonmediasystem/avalon-installer/commits/master
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 07 Oct 2015 17:24:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '50'
+      X-Ratelimit-Reset:
+      - '1444241389'
+      Cache-Control:
+      - public, max-age=60, s-maxage=60
+      Last-Modified:
+      - Wed, 23 Sep 2015 14:48:29 GMT
+      Etag:
+      - W/"16e4fbff3a6be751742677bc9b73b5a9"
+      Vary:
+      - Accept
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 95A0D945:10753:D48F803:56155537
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - 2d7a5e35115884240089368322196939
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA+1XTY/bNhD9K4JQYA9ZmbI+LMvAIgv00EPRW3ppEyxG4kgi
+        Qn2ApOxsDf/3DiU5Gzt1Yu1ub3uySXHePA5nOI97V1fgblwoigA4hJilq3US
+        IEYQpFnKOV8HRQJ5wiM/gnXm3rp5W9fCuJu9C72pWmX/NVAjofwh8gpQOr9L
+        FA0txRqEpPk6+2xn7ks7XhAAfeNgrEngL2PPT70g/LCMNtF6E6R/uYejF4P/
+        E3yNWkNpCfwqERqn75zfsC6ERE3cjEL6tD/GJgfuJ0sAHvgYwiqPuI85L6I0
+        DNdJHCTrLIuTOCLDXtntVsZ0esMYdGJRClP1md0zU9i1msEWZNvUyAXoR22w
+        nmY80WgDUqJiZMMsBVp8rWuK2Ov5Hk+YvM9LCmzMQ972DeWG/2p8nsGlMrV8
+        OI3GN6dwRfxHn8/Yvj5z+9wEmLtpZg0o/DZ3n4pStiVV4dfqo2+Cu5vlUOC0
+        bgsG1DnhYVJPWdtrVHnbGEIeErhno/H77V1IaKWaMCys+7Pst2CaTTcBLf7x
+        KT2tK1op2x3ZnlM9La4TePbViByN/0VTzgcgoz1rTYUUJ6J/sJsW2syiMhjs
+        qaa1eRDcQlCZK4V8Dp3JhMjsGuKxH+6SAavPdK5EZ0TbzKJ1YkhArSqhEf/A
+        bCAytGk3XG5ztjQYkCFubeLOsRwt9qxTYgv5ow2DwhzFlmI6H+3MlMDMY2cb
+        w5904jbCwuAD8NqWUgFS43lzeiszZc/xrczGLn96Eb2V2Sj96MI6qdCryqwD
+        NTS1zd9HKRYvizhNV3kYLpMo4nkQYBBxDsU6CNMC0mhVFFYyEfzryKFjJ57h
+        +MeN7Xr5cbXLw6ehp9hA7V3TkoikLk8NnnMx3ObDiKPEaWTF2ah0nwKbRjGF
+        M8nyPPbTlK/iJOcYLdc8W/ox+GEIWZD64doWOonkSe9nomGF+OJlfcMlLnRl
+        70ti0pNPt265KARymrtMhYR+BU1JqtuSzGSbvUi5WYCrdRv7L/oKdi9iQPYv
+        IzAJrp90xKvfEke47zf7XmFxN0Pid2Dyis71/t7x4tvQeRffRg4NdiUa5/jk
+        oe1fEI+XEp/9sl8e2PT4+ti8KtxCtvlnh0Bl43jaYVtQbLejAxreYIyevqTD
+        jr7tYpDOgpazXis2DJna1kPo6NfTFUrp3HAsoJfmxvFy52ZMfWd6vDmeR2Gq
+        LnmaFo+L7i7QKbHWhLOjh2PbG4eTpJFtZ+W9Y1Cbm4/NO1UfX6vH33GnUxTH
+        nbiHT4d/AWBG1wvfDwAA
+    http_version: 
+  recorded_at: Wed, 07 Oct 2015 17:24:07 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/avalonmediasystem/avalon-installer/commits/master
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 07 Oct 2015 17:24:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '49'
+      X-Ratelimit-Reset:
+      - '1444241389'
+      Cache-Control:
+      - public, max-age=60, s-maxage=60
+      Last-Modified:
+      - Wed, 23 Sep 2015 14:48:29 GMT
+      Etag:
+      - W/"16e4fbff3a6be751742677bc9b73b5a9"
+      Vary:
+      - Accept
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 95A0D945:10756:102DD78D:56155537
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - c6c65e5196703428e7641f7d1e9bc353
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA+1XTY/bNhD9K4JQYA9ZmbI+LMvAIgv00EPRW3ppEyxG4kgi
+        Qn2ApOxsDf/3DiU5Gzt1Yu1ub3uySXHePA5nOI97V1fgblwoigA4hJilq3US
+        IEYQpFnKOV8HRQJ5wiM/gnXm3rp5W9fCuJu9C72pWmX/NVAjofwh8gpQOr9L
+        FA0txRqEpPk6+2xn7ks7XhAAfeNgrEngL2PPT70g/LCMNtF6E6R/uYejF4P/
+        E3yNWkNpCfwqERqn75zfsC6ERE3cjEL6tD/GJgfuJ0sAHvgYwiqPuI85L6I0
+        DNdJHCTrLIuTOCLDXtntVsZ0esMYdGJRClP1md0zU9i1msEWZNvUyAXoR22w
+        nmY80WgDUqJiZMMsBVp8rWuK2Ov5Hk+YvM9LCmzMQ972DeWG/2p8nsGlMrV8
+        OI3GN6dwRfxHn8/Yvj5z+9wEmLtpZg0o/DZ3n4pStiVV4dfqo2+Cu5vlUOC0
+        bgsG1DnhYVJPWdtrVHnbGEIeErhno/H77V1IaKWaMCys+7Pst2CaTTcBLf7x
+        KT2tK1op2x3ZnlM9La4TePbViByN/0VTzgcgoz1rTYUUJ6J/sJsW2syiMhjs
+        qaa1eRDcQlCZK4V8Dp3JhMjsGuKxH+6SAavPdK5EZ0TbzKJ1YkhArSqhEf/A
+        bCAytGk3XG5ztjQYkCFubeLOsRwt9qxTYgv5ow2DwhzFlmI6H+3MlMDMY2cb
+        w5904jbCwuAD8NqWUgFS43lzeiszZc/xrczGLn96Eb2V2Sj96MI6qdCryqwD
+        NTS1zd9HKRYvizhNV3kYLpMo4nkQYBBxDsU6CNMC0mhVFFYyEfzryKFjJ57h
+        +MeN7Xr5cbXLw6ehp9hA7V3TkoikLk8NnnMx3ObDiKPEaWTF2ah0nwKbRjGF
+        M8nyPPbTlK/iJOcYLdc8W/ox+GEIWZD64doWOonkSe9nomGF+OJlfcMlLnRl
+        70ti0pNPt265KARymrtMhYR+BU1JqtuSzGSbvUi5WYCrdRv7L/oKdi9iQPYv
+        IzAJrp90xKvfEke47zf7XmFxN0Pid2Dyis71/t7x4tvQeRffRg4NdiUa5/jk
+        oe1fEI+XEp/9sl8e2PT4+ti8KtxCtvlnh0Bl43jaYVtQbLejAxreYIyevqTD
+        jr7tYpDOgpazXis2DJna1kPo6NfTFUrp3HAsoJfmxvFy52ZMfWd6vDmeR2Gq
+        LnmaFo+L7i7QKbHWhLOjh2PbG4eTpJFtZ+W9Y1Cbm4/NO1UfX6vH33GnUxTH
+        nbiHT4d/AWBG1wvfDwAA
+    http_version: 
+  recorded_at: Wed, 07 Oct 2015 17:24:07 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/avalonmediasystem/avalon/commits/master
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 07 Oct 2015 17:24:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '48'
+      X-Ratelimit-Reset:
+      - '1444241389'
+      Cache-Control:
+      - public, max-age=60, s-maxage=60
+      Last-Modified:
+      - Sat, 19 Sep 2015 00:28:01 GMT
+      Etag:
+      - W/"5bedfe231905c0d40d572d1327f542de"
+      Vary:
+      - Accept
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 95A0D945:10754:114CBF1C:56155537
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - 8a5c38021a5cd7cef7b8f49a296fee40
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        dbn6A6OP1+oxHQAA
+    http_version: 
+  recorded_at: Wed, 07 Oct 2015 17:24:07 GMT
+recorded_with: VCR 2.9.3

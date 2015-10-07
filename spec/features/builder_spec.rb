@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'csv'
 
 describe 'Tests for the Builder' do
   let(:buildertester) { Class.new { include Builder } }
@@ -60,9 +61,83 @@ describe 'Tests for the Builder' do
     end
   end
 
+  describe 'Determing if a build is needed' do
+    let(:githubtester) { Class.new { include GithubChecker } }
+    avalon_git_api = 'https://api.github.com/repos/avalonmediasystem/avalon/'
+    avalon_installer_git_api = 'https://api.github.com/repos/avalonmediasystem/avalon-installer/'
+    ova_name = 'OvaFileName.ova'
+    success = 'success'
+    notes = 'none'
+
+    it 'determines a build is needed when there are no builds' do
+      VCR.use_cassette('new_build') do
+        remove_csv_and_data_dir
+        expect(buildertester.new.ova_already_built?('master')).to be_falsey
+      end
+    end
+
+#@@csv_headers = %w(avalon_branch avalon_commit avalon_installer_branch
+                   #avalon_installer_commit ova_name build_status notes)
+
+    it 'determines a build is not needed when there is already a build for the current branches and commits' do
+      remove_csv_and_data_dir
+      buildertester.new.make_history_csv
+      VCR.use_cassette('build_aready_present') do
+        current_avalon_commit = githubtester.new.get_latest_commit(avalon_git_api, 'master')
+        current_avalon_installer_commit = githubtester.new.get_latest_commit(avalon_installer_git_api, 'master')
+        line = ['master', current_avalon_commit, 'master', current_avalon_installer_commit, ova_name, success, notes]
+        write_to_history_csv(line)
+        expect(buildertester.new.ova_already_built?('master')).to match(ova_name)
+      end
+    end
+
+    it 'determines a new build is needed if the avalon commits do not match' do
+      remove_csv_and_data_dir
+      buildertester.new.make_history_csv
+      VCR.use_cassette('build_aready_present') do
+        current_avalon_installer_commit = githubtester.new.get_latest_commit(avalon_installer_git_api, 'master')
+        line = ['master', '1', 'master', current_avalon_installer_commit, ova_name, success, notes]
+        write_to_history_csv(line)
+        expect(buildertester.new.ova_already_built?('master')).to be_falsey
+      end
+    end
+
+    it 'determines a new build is needed if the avalon installer commits do not match' do
+      remove_csv_and_data_dir
+      buildertester.new.make_history_csv
+      VCR.use_cassette('build_aready_present') do
+        current_avalon_commit = githubtester.new.get_latest_commit(avalon_git_api, 'master')
+        line = ['master', current_avalon_commit, 'master', '1', ova_name, success, notes]
+        write_to_history_csv(line)
+        expect(buildertester.new.ova_already_built?('master')).to be_falsey
+      end
+    end
+
+    it 'determines a new build is needed if the matching build has failed' do
+      remove_csv_and_data_dir
+      buildertester.new.make_history_csv
+      VCR.use_cassette('build_aready_present') do
+        current_avalon_commit = githubtester.new.get_latest_commit(avalon_git_api, 'master')
+        current_avalon_installer_commit = githubtester.new.get_latest_commit(avalon_installer_git_api, 'master')
+        line = ['master', current_avalon_commit, 'master', current_avalon_installer_commit, ova_name, 'failed', notes]
+        write_to_history_csv(line)
+        expect(buildertester.new.ova_already_built?('master')).to be_falsey
+      end
+    end
+
+
+  end
+
   # Deletes the .csv file and the data dir for cleanup during or after tests
   def remove_csv_and_data_dir
     builder = buildertester.new
     FileUtils.rm_rf(builder.csv_location.dirname) if Dir.exist?(builder.csv_location.dirname)
+  end
+
+  def write_to_history_csv(line)
+    builder = buildertester.new
+    CSV.open(builder.csv_location, 'ab') do |csv|
+      csv << line
+    end
   end
 end
